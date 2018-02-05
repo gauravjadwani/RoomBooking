@@ -5,6 +5,7 @@ import './App.css';
 import GridList from './components/GridList.js';
 import Header from './components/Header.js';
 import LandingScreen from './components/LandingScreen.js';
+import Footer from './components/Footer.js';
 
 class App extends Component {
   render() {
@@ -14,7 +15,9 @@ class App extends Component {
         {/* <GridList/> */}
       <Header/>
           {/* <Card/> */}
+
           <LandingScreen/>
+        <Footer/>
       </div>
     );
   }
