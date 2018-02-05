@@ -16,7 +16,7 @@ class App extends Component {
       <Header/>
           {/* <Card/> */}
 
-          <LandingScreen/>
+          {/* <LandingScreen/> */}
         <Footer/>
       </div>
     );

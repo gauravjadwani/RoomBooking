@@ -7,8 +7,6 @@ import {Router, browserHistory} from 'react-router';
 import routes from './routes';
 
 ReactDOM.render(
-  <div>
-<Router history={browserHistory } routes={routes} />
-</div>, 
+<Router history={browserHistory } routes={routes} />, 
 document.getElementById('root'));
 registerServiceWorker();

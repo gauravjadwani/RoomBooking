@@ -6,13 +6,17 @@ import  LandingScreen from './components/LandingScreen';
 // import CoursesPage from './components/course/CoursesPage';
 // import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
 import DetailCard from './components/DetailCard';
-// import {Route,IndexRoute} from 'react-router';
-import { Switch, Route } from 'react-router-dom'
-
+import {IndexRoute} from 'react-router';
+import { Router, Route } from 'react-router-dom'
+// import {Route, IndexRoute} from 'react-router';
 export default (
-  <Switch>
-    <Route exact path='/' component={App}/>
-    <Route path='/d' component={DetailCard}/>
-  {/* <IndexRoute component={DetailCard}/> */}
-</Switch>
+  <Router>
+    <Route exact path='/' component={LandingScreen}/>
+      <IndexRoute component={App}/>
+    <Route path='/details' component={DetailCard}/>
+</Router>
+//<Route path="/" component={LandingScreen}>
+  //<IndexRoute component={LandingScreen}/>
+  //<Route path="/d" component={DetailCard}/>
+ //</Route>
 );

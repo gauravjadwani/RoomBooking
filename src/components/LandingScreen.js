@@ -3,6 +3,8 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Header from './Header';
+import Footer from './Footer';
 
 const styles = {
   root: {
@@ -78,6 +80,7 @@ class LandingScreen extends React.Component{
 
         <div style={styles.root}>
             <MuiThemeProvider>
+              <Header/>
           <GridList
             cols={3}
             cellHeight={300}
@@ -97,10 +100,11 @@ class LandingScreen extends React.Component{
                 rows={tile.featured ? 2 : 1}
                 onClick={() => this.handleClick(tile)}
               >
-                <img src={tile.img} />
+                <img src={tile.img} style={{cursor:'pointer'}}/>
               </GridTile>
             ))}
           </GridList>
+          <Footer/>
         </MuiThemeProvider>
         </div>
 
