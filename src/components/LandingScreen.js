@@ -5,6 +5,7 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './Header';
 import Footer from './Footer';
+import {init as firebaseInit} from '../firebase';
 
 const styles = {
   root: {
@@ -74,8 +75,15 @@ class LandingScreen extends React.Component{
   }
   constructer(){
     this.handleClick=this.handleClick.bind(this);
+
+
+
+     // var leadsRef = database.ref('leads');
   }
   render(){
+         firebaseInit();
+       // console.log('f');
+       // console.log('inside LandingScreen() ',firebaseInit().database);
     return(
 
         <div style={styles.root}>
