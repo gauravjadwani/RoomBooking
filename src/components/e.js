@@ -1,6 +1,6 @@
-import * as firebase from 'firebase'
+import * as firebase from 'firebase';
 let database;
-
+console.log('chal gaya');
 export const init = () => {
   let config = {
     apiKey: "AIzaSyAxllcQc0eYQVUnyu2WQHO7eH9G6mKKdBE",
@@ -10,8 +10,8 @@ export const init = () => {
     storageBucket: "roombooking-80143.appspot.com",
     messagingSenderId: "986075411769"
   };
-  firebase.initializeApp(config)
-  database = firebase.database();
+  firebase.initializeApp(config);
+  // database = firebase.database();
   // console.log('firebase ',database.ref('/roombooking-80143/'));
 
   var ref = firebase.database().ref();

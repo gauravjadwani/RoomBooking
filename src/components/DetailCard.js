@@ -19,33 +19,67 @@ import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Header from './Header';
 import Footer from './Footer';
 
-const CardExampleWithAvatar = () => (<MuiThemeProvider>
-  <Header/>
-  <Card>
-    <CardMedia >
-      <Carousel>
-        <div>
-          <img src="https://firebasestorage.googleapis.com/v0/b/roombooking-80143.appspot.com/o/r50.jpg?alt=media&token=7f369be9-777a-43db-a229-12e3ddb57880" alt="ga"/>
-          <p className="legend">Legend 1</p>
-        </div>
-        <div>
-          <img src="https://firebasestorage.googleapis.com/v0/b/roombooking-80143.appspot.com/o/r50.jpg?alt=media&token=7f369be9-777a-43db-a229-12e3ddb57880" alt="ga"/>
-          <p className="legend">Legend 1</p>
-        </div>
-      </Carousel>
+class DetailsCard extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+     isloading:true,
+     roomDetails: [],
+    };
 
-    </CardMedia>
-    {/* <CardTitle title="Card title" subtitle="Card subtitle" /> */}
-    <CardText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </CardText>
-    <CardActions>
-      <FlatButton label="Details"/>
+  }
 
-    </CardActions>
-  </Card>
-  <Footer/>
+  componentWillMount=()=>{
+    let id=(window.location.href).split("=")[1];
+    // console.log(props,'props');
+    // let roomDetails=(window.location.href,id,'w');
 
-</MuiThemeProvider>);
+    let roomDetails=(JSON.parse(localStorage.getItem('data'))[id]);
+      this.setState({roomDetails:roomDetails });
 
-export default CardExampleWithAvatar;
+  }
+
+  render(){
+    console.log(this.state.roomDetails);
+    this.state.roomDetails['seconndaryImg'].map((obj)=>(
+      console.log(obj['url'],'objee')
+    ));
+    return(
+      <div>
+      <MuiThemeProvider>
+        <Header/>
+        <Card>
+          <CardMedia>
+            <Carousel>
+              <div>
+                <img src={this.state.roomDetails['seconndaryImg'][0]['url']} alt="ga"/>
+                <p className="legend">{this.state.roomDetails['seconndaryImg'][0]['title']}</p>
+              </div>
+              <div>
+                <img
+                  src={this.state.roomDetails['seconndaryImg'][1]['url']}
+                  alt="ga"/>
+                <p className="legend">{this.state.roomDetails['seconndaryImg'][1]['title']}</p>
+              </div>
+            </Carousel>
+
+          </CardMedia>
+          {/* <CardTitle title="Card title" subtitle="Card subtitle" /> */}
+          <CardText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </CardText>
+          <CardActions>
+            <FlatButton label="Details"/>
+
+          </CardActions>
+        </Card>
+        <Footer/>
+
+      </MuiThemeProvider>
+    </div>
+);
+}
+}
+
+
+export default DetailsCard;

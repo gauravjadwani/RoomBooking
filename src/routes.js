@@ -11,7 +11,7 @@ import { Router, Route } from 'react-router-dom'
 // import {Route, IndexRoute} from 'react-router';
 export default (
   <Router>
-    <Route exact path='/' component={LandingScreen}/>
+    <Route exact path='/' component={LandingScreen} get='dear'/>
       <IndexRoute component={App}/>
     <Route path='/details' component={DetailCard}/>
 </Router>

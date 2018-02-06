@@ -1,6 +1,7 @@
 let INITIAL_STATE={
-  'isloading':true
-}
+  isloading:true,
+  roomList:[]
+};
 
 export default (state=INITIAL_STATE, action) => {
   switch (action.type) {

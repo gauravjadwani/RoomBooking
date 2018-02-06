@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import {database} from '../firebase';
 import CircularProgress from 'material-ui/CircularProgress';
+import browserHistory from 'react';
 
 const styles = {
   root: {
@@ -75,11 +76,13 @@ class LandingScreen extends React.Component{
 
   handleClick=(event,value)=>{
     console.log(event.id,this,value);
+    // browserHistory.push('/Details');
+    window.location = '/Details?id='+event.id;
   }
 
   constructor(props){
     super(props);
-    console.log('gaurav');
+    console.log('gaurav',props);
 
      // this.state = { count : 1 };
      this.state = {
@@ -107,6 +110,7 @@ componentWillMount=()=>{
    console.log('promise',snapshot);
    let obj=snapshot.val();
    console.log(obj,'q',tempthis);
+  localStorage.setItem('data',JSON.stringify(obj));
 
 
    for (let value of obj) {
@@ -118,8 +122,12 @@ componentWillMount=()=>{
    }
    tempthis.setState({roomList:tilesobject });
    tempthis.setState({isloading:false });
+
  });
   console.log(this,'outside on');
+}
+componentWillUnmount=()=>{
+  console.log('Unmounted');
 }
   render(){
 
