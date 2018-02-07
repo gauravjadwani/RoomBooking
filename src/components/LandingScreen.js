@@ -8,6 +8,7 @@ import Footer from './Footer';
 import {database} from '../firebase';
 import CircularProgress from 'material-ui/CircularProgress';
 import browserHistory from 'react';
+import './css/Loading.css';
 
 const styles = {
   root: {
@@ -90,17 +91,10 @@ class LandingScreen extends React.Component{
       roomList: [],
      };
     console.log(this.state);
-
-    this.handleClick=this.handleClick.bind(this);
-
-
-  console.log(this,'freak');
-  // this.setState({roomList: this.state.roomList.concat(tilesobject)});
+this.handleClick=this.handleClick.bind(this);
 
 }
 componentWillMount=()=>{
-   // console.log(state);
-
    var tempthis=this;
    console.log('tempthis',tempthis);
    console.log('gaurav jadwani',this.state);
@@ -111,9 +105,7 @@ componentWillMount=()=>{
    let obj=snapshot.val();
    console.log(obj,'q',tempthis);
   localStorage.setItem('data',JSON.stringify(obj));
-
-
-   for (let value of obj) {
+for (let value of obj) {
      let dummy={};
      dummy['id']=value.id;
      dummy['img']=value.mainImg;
@@ -126,19 +118,19 @@ componentWillMount=()=>{
  });
   console.log(this,'outside on');
 }
-componentWillUnmount=()=>{
-  console.log('Unmounted');
-}
   render(){
-
-       // console.log('f');
-       // console.log('inside LandingScreen() ',firebaseInit().database);
     return(
 
         <div style={styles.root}>
             <MuiThemeProvider>
               <Header/>
-{(this.state.isloading)?(<CircularProgress/>):(
+{(this.state.isloading)?(<CircularProgress    left={100} // Required properties
+          top={50}  // Required properties
+          status="loading"
+          style={{
+              display: 'inline-block',
+              position: 'relative',
+              margin: '50px auto' }}/>):(
           <GridList
             cols={3}
             cellHeight={300}
@@ -160,7 +152,8 @@ componentWillUnmount=()=>{
               </GridTile>
             ))}
           </GridList>)}
-      <Footer/>
+          {(this.state.isloading)?(''):(<Footer/> )}
+      {/* <Footer/> */}
         </MuiThemeProvider>
         </div>
 

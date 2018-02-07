@@ -53,23 +53,23 @@ class DetailsCard extends React.Component{
             <Carousel>
               <div>
                 <img src={this.state.roomDetails['seconndaryImg'][0]['url']} alt="ga"/>
-                <p className="legend">{this.state.roomDetails['seconndaryImg'][0]['title']}</p>
+                <p className="legend">Room 1</p>
               </div>
               <div>
                 <img
                   src={this.state.roomDetails['seconndaryImg'][1]['url']}
                   alt="ga"/>
-                <p className="legend">{this.state.roomDetails['seconndaryImg'][1]['title']}</p>
+                <p className="legend">Room 2</p>
               </div>
             </Carousel>
 
           </CardMedia>
           {/* <CardTitle title="Card title" subtitle="Card subtitle" /> */}
           <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            This spacious 2 bhk multistorey apartment is available for rental and is located in the heart of HSR Layout. It is a semi-furnished property. It is on the fourth floor of the building (total number of floors are 4). The property has 2 bathrooms and 1 balcony. It is well connected to the city areas. It is made in way to provide a comfortable living for the residents. Please contact us for more detail
           </CardText>
           <CardActions>
-            <FlatButton label="Details"/>
+            <FlatButton label="Book Room"/>
 
           </CardActions>
         </Card>
