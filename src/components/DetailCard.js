@@ -17,6 +17,7 @@ import {Carousel} from 'react-responsive-carousel';
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Header from './Header';
 import Footer from './Footer';
+import './css/detailsCard.css';
 
 class DetailsCard extends React.Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class DetailsCard extends React.Component {
             This spacious 2 bhk multistorey apartment is available for rental and is located in the heart of HSR Layout. It is a semi-furnished property. It is on the fourth floor of the building (total number of floors are 4). The property has 2 bathrooms and 1 balcony. It is well connected to the city areas. It is made in way to provide a comfortable living for the residents. Please contact us for more detail
           </CardText>
           <CardActions>
-            <FlatButton label="Book Room"/>
+            <FlatButton label="Book Room" className="bookButton"/>
           </CardActions>
         </Card>
         <Footer/>

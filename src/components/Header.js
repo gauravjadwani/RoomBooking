@@ -8,8 +8,9 @@ import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import RaisedButton from 'material-ui/RaisedButton';
 import Drawer from 'material-ui/Drawer';
+import './css/svg.css';
 
-const Logged = (props) => (<IconMenu {...props} iconButtonElement={<IconButton > <MoreVertIcon/></IconButton>} targetOrigin={{
+const Logged = (props) => (<IconMenu  {...props} iconButtonElement={<IconButton><MoreVertIcon className="svgColor" style={{color:'#fffff'}}/></IconButton>} targetOrigin={{
     horizontal: 'right',
     vertical: 'top'
   }} anchorOrigin={{
