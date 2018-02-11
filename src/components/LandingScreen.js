@@ -9,6 +9,7 @@ import {database} from '../firebase';
 import CircularProgress from 'material-ui/CircularProgress';
 import browserHistory from 'react';
 import './css/Loading.css';
+import {Link} from 'react-router';
 
 const styles = {
   root: {
@@ -25,8 +26,6 @@ const styles = {
 
 
 class LandingScreen extends React.Component{
-
-
   handleClick=(event,value)=>{
     window.location = '/Details?id='+event.id;
   }
@@ -72,14 +71,16 @@ for (let value of obj) {
               display: 'inline-block',
               position: 'relative',
               margin: '50px auto' }}/>):(
+
           <GridList
             cols={3}
             cellHeight={300}
             padding={10}
             style={styles.gridList}>
             {this.state.roomList.map((tile) => (
+              <Link to={'/Details?id='+tile.id}>
               <GridTile
-                key={tile.img}
+                key={tile.id}
                 title={tile.title}
                 actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
                 actionPosition="left"
@@ -87,12 +88,15 @@ for (let value of obj) {
                 titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
                 cols={tile.featured ? 2 : 1}
                 rows={tile.featured ? 2 : 1}
-                onClick={() => this.handleClick(tile)}
+
               >
                 <img src={tile.img} style={{cursor:'pointer'}}/>
               </GridTile>
+                </Link>
             ))}
-          </GridList>)}
+
+          </GridList>
+      )}
           {(this.state.isloading)?(''):(<Footer/> )}
         </MuiThemeProvider>
         </div>
